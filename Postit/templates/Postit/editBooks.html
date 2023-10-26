@@ -1,0 +1,29 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+{% block last%}Which was the last book you read?{% endblock%}
+{% block booksPostit%}Post it{% endblock%}
+
+
+{%block favbook%}
+    <form action= '' method = 'POST' >{% csrf_token %} 
+
+            <h1>   </h1>  
+            {{booksForm.as_table}}<h1>   </h1>  
+        
+            <h1>   </h1>  
+            <button class="btn btn-primary text-uppercase "  type="submit">Post</button>
+    
+                                                            
+        </form>
+    
+        <p>   </p>
+    
+
+                                                        
+   
+    <p>          </p>
+{%endblock%}
+
+ 
+

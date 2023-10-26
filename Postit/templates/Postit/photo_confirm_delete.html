@@ -1,0 +1,17 @@
+{% extends 'Postit/padre.html'%}
+
+{% load static%}
+
+{% block confirmPost%}Post it{% endblock%}
+
+{% block confirmDelete%}
+    <p>Are you ready to delete this post? </p>
+
+    <form action = '' method = 'POST'> {% csrf_token %}
+
+        
+        <input type = 'submit' value = 'confirm'>
+
+    </form>
+{%endblock%}
+    

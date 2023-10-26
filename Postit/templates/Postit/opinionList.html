@@ -1,0 +1,46 @@
+{% extends 'Postit/padre.html'%}}
+
+{% load static %}
+
+{% block opinionPost%}Post it {% endblock%}
+
+
+{% block comentarios%} 
+
+    <h3> What people think about Post it:</h3>
+
+    <h3>    </h3>
+
+    {% for opinion in opinions %} 
+            
+    
+        <h3 class="post-title"> {{opinion.sign}} </h3>
+
+        <p1> {{opinion.text}} </p1>
+
+       
+
+
+    <hr class="my-4" />
+   
+    {%endfor%}
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/opinionForm">Comment →</a></div> 
+{%endblock%}
+
+
+
+
+{% block meMato%}
+
+    <ol>
+        {% for opinions in object_list %} 
+
+            <li>
+            <h> {{opinions.sign}} </h2>
+
+            <p> {{opinions.text}} </p>
+            </li>
+        {% endfor %}
+        </ol>
+
+{% endblock %}

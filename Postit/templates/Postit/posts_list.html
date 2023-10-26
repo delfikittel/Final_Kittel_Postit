@@ -1,0 +1,18 @@
+{% extends 'Postit/padre.html'%}}
+
+{% load static %}
+
+{% block list%}
+
+<ol>
+    {% for post in object_list %} 
+
+        <li>
+            {{post.heading}} by {{post.author}}
+
+            {{post.subtite}}
+        </li>
+    {% endfor %}
+    </ol>
+
+{% endblock %}

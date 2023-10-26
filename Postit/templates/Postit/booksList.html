@@ -1,0 +1,46 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+{% block profileYour%} {%endblock%}
+{% block profilePostit%}Post it{%endblock%}
+
+
+
+{% block booklist%} 
+
+    <h3>books:</h3>
+
+
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/booksForm">New read →</a></div> 
+
+
+    <h3>    </h3>
+
+    {% for book in books %} 
+            
+    
+        <h3 class="post-title"> {{book.title}} by {{book.writer}}</h3>
+
+        <p1> {{book.genre}} </p1>
+
+        <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/postsForm">Post →</a></div> 
+
+
+        <button>    
+            <a href= '{% url "editBooks" book.title %}' class="btn-primary text-lowercase">edit book</a>
+        </button>
+
+        <button>    
+            <a href= '{% url "deleteBook" book.id %}' class="btn-primary text-lowercase">delete book</a>
+        </button>
+
+   
+
+    <hr class="my-4" />
+
+    {%endfor%}
+
+{%endblock%}
+
+
+

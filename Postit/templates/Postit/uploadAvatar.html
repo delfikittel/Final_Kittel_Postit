@@ -1,0 +1,26 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+{% block avatarHeading%}Post it{% endblock%}
+
+{% block upload%} <h1>Upload your new avatar: </h1> {% endblock%}
+{% block avatarForm%}
+
+    <form action= '' method = 'POST' enctype = 'multipart/form-data'>{% csrf_token %} 
+
+
+        <form>
+
+            {{form.as_p}}
+
+
+            <button type="submit" class="btn btn-primary text-uppercase" >upload</button>
+        </form>
+    </form>
+
+
+
+        <p>          </p>
+
+        <p>          </p>
+{% endblock%}

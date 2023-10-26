@@ -1,0 +1,26 @@
+{% extends 'Postit/padre.html'%}
+{%load static%}
+
+{% block profileYour%}Your profile in{%endblock%}
+{% block profilePostit%}Post it{%endblock%}
+
+
+{% block editProfileForm%}
+
+    
+    <form action= '' method = 'POST' >{% csrf_token %} 
+        <p1> your user: {{user}}</p1>
+
+        <h1>   </h1>  
+        {{editForm.as_table}}<h1>   </h1>  
+
+        <h1>   </h1>  
+        <button class="btn btn-primary text-uppercase "  type="submit">Confirm</button>
+
+                                                        
+    </form>
+                  
+
+    <p>          </p>
+
+{%endblock%}

@@ -1,0 +1,27 @@
+{% extends 'Postit/padre.html' %}
+{% load static %}
+
+{% block up %}Sign up to{% endblock %}
+{% block signupHeading %}Post it{% endblock%}
+{%block sugnupSub%}The book lover community{% endblock %} 
+
+{% block signupEvery%}<h3>Every reader is different.</h3>{% endblock%}
+{%block signupWorld%}<h3>Let the world know you.</h3>{%endblock%}
+
+ 
+
+
+{% block signupForm%}
+
+    <form action= '' method = 'POST' >{% csrf_token %} 
+
+        {{formulario.as_p}}
+
+
+        <button class="btn btn-primary text-uppercase "  type="submit">Sign up</button>
+        
+    </form>
+
+    <p>          </p>
+
+{% endblock%}

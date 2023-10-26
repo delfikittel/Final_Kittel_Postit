@@ -1,0 +1,98 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+
+{% block homeHeading %}<h1>Post it</h1>{%endblock %}
+{%block homeSubheading%}The book lover community {% endblock %}
+
+
+
+
+{% block peopleThinkResulsts %}Look what people in the community think!{% endblock%}
+
+
+{% block PostLookforResults%}
+
+    <form action= '/Postit/' method = 'GET' >{% csrf_token %} 
+
+
+        <div class="form-floating">
+            <input class="form-control"  type="text" name="postHeading" id= "postHeading" />
+            <label for="postHeading">Book</label>
+            
+        </div>
+
+   
+        <h1>    </h1>
+        <input class="btn btn-primary text-uppercase "  type="submit" value = 'Search'>
+        <h1>    </h1>
+    </form>
+
+           
+
+{% endblock %}
+
+
+
+
+{% block postResultsR %}
+    <h1>      </h1>
+    <h1>      </h1>
+    <h1>      </h1>
+    <h1>      </h1>
+    {% for titulo in posts %}
+        
+        <h4>  {{titulo.heading}} by {{titulo.author}} </h4>
+
+        <p> <a href= '{% url "postsRead" %}' class="btn-primary text-lowercase">{{titulo.subtite}}</a> <p>
+            
+        <hr class="my-4" />
+
+    {% endfor %}
+
+    <h1>    </h1>
+    <p1>Every reader is different. Let the world know you!</p1> 
+    <h1>    </h1>
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/postsForm">Post →</a></div> 
+
+{% endblock%}
+
+
+
+{% block resultsBottom%} 
+    <h1>    </h1>
+    <p1>Every reader is different. Let the world know you!</p1> 
+    <h1>    </h1>
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/postsForm">Post →</a></div> 
+
+{% endblock%}
+
+{% block results%}
+
+    {% for u in usuario %}
+        
+    <p>  {{u.name}}  </p>
+
+
+    {% endfor %}
+{%endblock%}
+
+{% block list%}
+
+    <ol>
+        {% for post in object_list %} 
+
+            <li>
+                {{post.heading}} by {{post.author}}
+
+                {{post.subtite}}
+            </li>
+        {% endfor %}
+
+        
+        </ol>
+
+{% endblock %}
+
+
+

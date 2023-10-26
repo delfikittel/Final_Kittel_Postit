@@ -1,0 +1,29 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+
+{% block readSubheading %} <h2>Get to know the community is doing! </h2>{% endblock %}
+ 
+
+{%block favbook%}
+    <form action= '' method = 'POST' >{% csrf_token %} 
+
+            <h1>   </h1>  
+            {{photoForm.as_table}}<h1>   </h1>  
+        
+            <h1>   </h1>  
+            <button class="btn btn-primary text-uppercase "  type="submit">Post</button>
+    
+                                                            
+        </form>
+    
+        <p>   </p>
+    
+
+                                                        
+   
+    <p>          </p>
+{%endblock%}
+
+ 
+

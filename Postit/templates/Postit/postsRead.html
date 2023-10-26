@@ -1,0 +1,36 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+{% block readHeading%}<h2>Discover what the Post it community is thinking!</h2>{%endblock%}
+{% block readSubheading %}Get to know the most popular books this week!{% endblock %}
+ 
+
+
+
+{% block read %}
+
+    {% for post in posts %} 
+        
+        <h1 class="section-heading">{{post.subtite}}</h1>
+        <h4 class="post-title"> about {{post.heading}} by {{post.author}}</h4>
+
+        <p1> {{post.body}} </p1>
+
+        <button>    
+            <a href= '{% url "editPost" post.subtite %}' class="btn-primary text-lowercase">edit post</a>
+        </button>
+        <button>    
+            <a href= '{% url "deletePost" post.id %}' class="btn-primary text-lowercase">delete post</a>
+        </button>
+
+        
+        
+        <hr class="my-4" />
+
+    {% endfor %}
+
+{% endblock %}
+
+{% block readBottom %}
+    <p>Every reader is different. Let the world know you!</p>   <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/postsForm">Post →</a></div>
+{% endblock %}

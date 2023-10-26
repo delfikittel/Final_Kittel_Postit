@@ -1,0 +1,39 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+
+{% block readSubheading %} <h2>Get to know the community is doing! </h2>{% endblock %}
+ 
+
+
+
+{% block read %}
+
+    {% for photo in photos %} 
+    
+
+       
+
+       
+        <img src = '{{photo.image.url}}' alt = 'no image' style= 'max-width: 200px;'>
+        
+        <p class="post-title"> {{photo.text}} </p>
+
+        <button>    
+            <a href= '{% url "editPhotos" photo.id %}' class="btn-primary text-lowercase">edit post</a>
+        </button>
+       
+        <button>    
+            <a href= '{% url "deletePhoto" photo.id %}' class="btn-primary text-lowercase">delete post</a>
+        </button>
+
+        
+        <hr class="my-4" />
+
+    {% endfor %}
+
+{% endblock %}
+
+{% block readBottom %}
+    <p>Every reader is different. Let the world know you!</p>  </div> <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/uploadPhoto">Image Post →</a></div>
+{% endblock %}

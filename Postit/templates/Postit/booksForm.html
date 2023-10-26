@@ -1,0 +1,36 @@
+{%extends 'Postit/padre.html'%}
+{% load static %}
+
+{% block last%}Which was the last book you read?{% endblock%}
+{% block booksPostit%}Post it{% endblock%}
+
+{% block favbook%}
+
+  
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/booksList">books →</a></div> 
+
+
+    <form action= '' method = 'POST' >{% csrf_token %} 
+
+ 
+        <h1>   </h1>  
+        {{form2.as_table}}
+        <h1>   </h1>  
+        <h1>   </h1>
+        <button class="btn btn-primary text-uppercase"  type="submit">Post it</button>
+        
+        <h1>   </h1>
+        <h1>   </h1>
+        <h1>   </h1>
+    </form>
+    <p>   </p>
+{% endblock%}
+
+
+
+
+
+
+
+
+

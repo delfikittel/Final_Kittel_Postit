@@ -1,0 +1,34 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+{% block loginHeading%}<h2>Welcome to</h2>{% endblock%}
+{% block loginPost%}<h1>Post it</h1>{% endblock%}
+
+
+
+{% block loginEvery%}<h3>Every reader is different.</h3>{% endblock%}
+{%block loginWorld%}<h3>Let the world know you.</h3>{%endblock%}
+
+{% block loginForm%}
+
+    <form action= '' method = 'POST' >{% csrf_token %} 
+
+
+        <h1>Log in: </h1>
+
+        <form>
+
+            {{formulario.as_p}}
+
+
+            <button type="submit" class="btn btn-primary text-uppercase" >Log In</button>
+        </form>
+    </form>
+
+
+
+        <p>          </p>
+
+        <p>          </p>
+{% endblock%}
+        

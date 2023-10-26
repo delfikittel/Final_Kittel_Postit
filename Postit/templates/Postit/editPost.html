@@ -1,0 +1,29 @@
+{% extends 'Postit/padre.html'%}
+{% load static%}
+
+{% block editWhat %}What are you thinking?{% endblock%}
+{% block editHeading%}Post it{% endblock%}
+
+
+{%block edit%}
+    <form action= '' method = 'POST' >{% csrf_token %} 
+
+            <h1>   </h1>  
+            {{myForm.as_table}}<h1>   </h1>  
+        
+            <h1>   </h1>  
+            <button class="btn btn-primary text-uppercase "  type="submit">Post</button>
+    
+                                                            
+        </form>
+    
+        <p>   </p>
+    
+
+                                                        
+   
+    <p>          </p>
+{%endblock%}
+
+ 
+

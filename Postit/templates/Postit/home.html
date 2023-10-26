@@ -1,0 +1,112 @@
+{% extends 'Postit/padre.html'%}
+
+{% load static %}
+
+{% block mensaje%} <h2>{{message}} </h2> {% endblock %}
+{% block welcome%} <h2>{{welcome}} </h2> {% endblock %}
+
+{% block homeHeading %}<h1>Post it</h1>{%endblock %}
+{%block homeSubheading%}The book lover community {% endblock %}
+   
+
+
+{% block peopleThink %} 
+
+    <h2>Post it is a reader community in growth! </h2>
+    <h2>People here share their opinions about the books that they read and look for recommendations made by other readers!</h2>
+
+
+        <p>Enjoy your Reading!</p>
+
+{% endblock%}
+
+
+
+
+{% block PostLookfor%}
+
+    <form action= '/Postit/postsResults/' method = 'GET' >{% csrf_token %} 
+
+
+        <div class="form-floating">
+            <input class="form-control"  type="text" name="postHeading" id= "postHeading" />
+            <label for="postHeading">Name of the book</label>
+        </div>
+
+   
+        <h1>    </h1> 
+        <input class="btn btn-primary text-uppercase "  type="submit" value = 'Search'>
+        <h1>    </h1>
+    </form>
+
+
+    
+{% endblock %}
+
+
+
+{% block postResults %}
+    <h1>      </h1>
+    <h1>      </h1>
+    <h1>      </h1>
+    <h1>      </h1>
+    {% for titulo in posts %}
+
+        <h4>  {{titulo.heading}} by {{titulo.author}} </h4>
+
+        <p> <a href= '{% url "postsRead" %}' class="btn-primary text-lowercase">{{titulo.subtite}}</a> <p>
+            
+            <hr class="my-4" />
+
+    {% endfor %}
+
+
+   
+
+{% endblock%}
+
+
+{% block opinion %} 
+
+    <h1>    </h1>
+    <p1>See what people in the community think!</p1> 
+    <h1>    </h1>
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/opinionList">Read →</a></div> 
+    <h1>    </h1>
+    <p1>Check the books people in the community like!</p1> 
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/booksList">Books →</a></div> 
+    <h1>    </h1>
+
+
+{% endblock%}
+
+{% block bottom%} 
+    <h1>    </h1>
+    <p1>Every reader is different. Let the world know you!</p1> 
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/signup">Read →</a></div> 
+    <h1>    </h1>
+    <p1>Check the books people in the community like!</p1> 
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/Postit/signup">Books →</a></div> 
+    <h1>    </h1>
+    
+    
+
+{% endblock%}
+
+   
+
+
+{% block list%}
+
+    <ol>
+        {% for post in object_list %} 
+
+            <li>
+                {{post.heading}} by {{post.author}}
+
+                {{post.subtite}}
+            </li>
+        {% endfor %}
+        </ol>
+
+{% endblock %}

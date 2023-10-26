@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+      
+        <title>Post it</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'Postit/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="/Postit/aboutMe">About Me</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                       <!-- <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/">Home</a></li>-->
+
+                        
+                        {% if request.user.is_authenticated %}   
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/home">Home</a></li>
+                            
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/postsRead">Read</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/photoRead">Watch</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/opinionForm">Profile</a></li>
+
+                           
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4">{{user.username}}</a></li>
+                            
+                            {% with user.avatar_set.first as myAvatar %}
+
+                            {%if myAvatar%} 
+                            <img src = '{{myAvatar.image.url}}' alt = 'no image' style= 'max-width: 70px;'>
+                            {%endif%}
+                            {% endwith %}
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/logout">Log out</a></li>
+
+
+                        
+                        {%else%}
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/signup">Sign Up</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/Postit/login">Log in</a></li>
+
+
+                            
+                        {%endif%}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-color: black">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                          
+                            <span class="subheading">
+                                   
+                                
+                                <!-- SIGN UP--> 
+                                {% block up %}{% endblock %} 
+
+
+                                <!-- POST -->
+                                {%block postWhat%} {%endblock%}
+                                <!-- EDIT-->
+                                {% block editWhat%} {%endblock%}
+                               
+                                <!-- PROFILE -->
+                                {% block profileYour%} {% endblock %}
+
+                                <!-- BOOKS-->
+                                {% block last%}{%endblock%}
+                              
+                                <h2>
+                            
+
+                                <!-- LOG OUT-->
+                                {% block logout%} {% endblock%}
+
+                                </h2>
+                             
+
+                            </span>
+                            <h1>
+                                <!-- HOME-->
+                                {%block mensaje%} {%endblock%}
+                                {%block welcome%} {% endblock%}
+                                {% block homeHeading %} {% endblock %}
+
+                                <!-- SIGN UP-->
+                                {% block signupHeading %} {% endblock%}
+
+                                <!--LOG IN -->
+                                {%block loginHeading%} {%endblock%}
+                                {% block loginPost%} {%endblock%}
+
+
+                               <!-- READ-->
+                                {% block readHeading %} {%endblock%} 
+
+                               <!-- READ RESULTS-->
+                                {% block resultsHeading%}{%endblock%} 
+
+                                <!-- POST -->
+                                {%block postHeading%} {%endblock%}
+                                <!-- EDIT-->
+                                {%block editHeading%} {%endblock%}
+                                <!--DELETE-->
+                                {%block confirmPost%} {%endblock%}
+
+
+                               <!--PROFILE-->
+                               {%block profilePostit%} {% endblock %}
+
+                               <!-- BOOKFORM-->
+                                {% block booksPostit%}{%endblock%}
+
+                                <!-- AVATAR-->
+                                {% block avatarHeading %} {% endblock%}
+
+                                <!-- ABOUT ME-->
+                                {% block aboutHead%} {%endblock%}
+
+                                {% block opinionPost%} {% endblock %}
+
+
+                                
+                            
+
+                            </h1>
+                            
+                            <span class="subheading">
+                                <!-- HOME-->
+                                {% block homeSubheading%} {% endblock%}
+                             
+
+                                <!-- SIGN UP-->     
+                                {% block signupSubheading %} {% endblock %}
+                                {%block signupSub%}{% endblock %}
+
+
+                                <!-- LOGIN -->
+                               
+
+                                <!-- READ -->
+                                <p3>{% block readSubheading %} {% endblock%} </p3>
+
+                                <!-- READ RESULTS -->
+                                {% block resultsSubheading %} {% endblock %}
+
+                                <!-- EDIT PROFILE-->
+                                {% block profileSubheading%} {%endblock%}
+
+                               
+
+
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+
+                    <p>
+                        <!-- HOME-->
+                        {% block peopleThink %} {% endblock%}
+                        
+
+                       
+                        {% if request.user.is_authenticated %}   
+                        {%block opinion%} {% endblock%}
+                        {% block PostLookfor%} {%endblock%}
+                        {%block postResults%} {% endblock%}
+
+
+
+                        {% else %}
+                        {% block bottom %} {%endblock%}
+                        
+                        {%endif%}
+                      
+                        <!-- SIGN UP-->
+                        {% block signupEvery%} {%endblock%}
+                        {%block signupWorld%} {%endblock%}
+                        {% block signupForm %} {% endblock %}
+
+
+                        <!-- LOGIN-->
+                        {% block loginEvery%}{% endblock%}
+                        {%block loginWorld%} {%endblock%}
+                        {% block loginForm%} {%endblock%}
+
+                        <!-- READ-->
+                        {% block read%} {% endblock%}
+                        {% block readBottom %} {% endblock%}
+                       
+
+                        <!--DELETE-->
+                        {% block confirmDelete%} {%endblock%}
+
+                
+                        <!-- READ RESULTS -->
+                        {% block peopleThinkResults %} {% endblock%}
+                        {% block PostLookforResults%} {%endblock%}
+                        {%block postResultsR%} {% endblock%}
+                        {% block reasultsBottom %} {% endblock%}
+
+                        <!-- PROFILE-->
+                        {% block opinionForm %} {%endblock%}
+                        {% block editlink%} {% endblock%}
+
+                        <!-- AVATAR-->
+                        {%block upload%} {% endblock%}
+                        {% block avatarForm%} {% endblock%}
+
+                        <!-- BOOKS-->
+                       {% block booklist%} {%endblock%}
+
+                       {% block aboutMe%} {%endblock%}
+
+                    </p>
+                    <h2>
+                        <!-- POST-->
+                        {% block postTalk %} {%endblock%}
+                        {%block post%} {% endblock%} 
+                        <!-- EDIT-->
+                        {%block edit%} {%endblock%}
+                        {% block editProfileForm%} {% endblock%}
+                       
+
+                        <!--BOOKFORM--> 
+                        {% block favbook%} {% endblock%} 
+
+
+                        {%block comentarios%} {% endblock%}
+
+                     
+                        
+
+                        
+                       
+        
+                    </h2>  
+                </div>
+            </div>
+                        
+                       
+                        
+        
+        
+        
+        </div>
+        <!-- Footer
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-left">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+
+                                    
+                                                
+
+
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2023</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+       <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+       <!-- <script src="js/scripts.js"></script>
+    </body>
+</html>
+-->

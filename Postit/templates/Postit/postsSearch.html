@@ -1,0 +1,33 @@
+{% extends 'Postit/padre.html'%}
+
+{% load static%}
+
+
+{% block postsSearch %}
+
+<form action= '/Postit/postsResults/' method = 'GET' >{% csrf_token %} 
+
+
+    <div class="form-floating">
+
+        <input class="form-control"  type="text" name="postHeading" id= "postHeading" />
+        
+        <label for="postHeading">Name of the book</label>
+    </div>
+</form>
+
+
+    {% for titulo in posts %}
+
+        <p>  {{titulo.heading}} by {{titulo.author}} </p>
+
+        <p> --    {{titulo.subtite}} </p>
+
+
+    {% endfor %}
+
+  
+
+
+    
+{% endblock%}
