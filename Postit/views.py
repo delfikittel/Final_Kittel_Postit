@@ -23,7 +23,7 @@ def home(request):
     return render(request, 'Postit/home.html')
 
 
-
+@login_required
 def opinionForm(request):
     opForm = OpinionForm(request.POST)
     if request.method == 'POST':
@@ -190,7 +190,7 @@ def postsResults(request):
         return render(request, 'Postit/postsResults.html', {'postHeading': postHeading, 'posts': posts})
     
 
-
+@login_required
 def deletePost(request, subtite):
 
     post = Posts.objects.get(subtite = subtite)
@@ -203,7 +203,7 @@ def deletePost(request, subtite):
     return render(request, 'Postit/postsRead.html', contexto)
 
 
-
+@login_required
 def editPost(request, subtite):
 
     post = Posts.objects.get(subtite = subtite)
@@ -286,17 +286,17 @@ def photoRead(request):
 
     return render(request, 'Postit/photoRead.html', context)
 
+@login_required
+def editPhotos(request, text):
 
-def editPhotos(request, image):
-
-    photo = Photo.objects.get(image = image)
+    photo = Photo.objects.get(text = text)
 
     if request.method == 'POST':
 
         photoForm = PhotoForm(request.POST)
 
         if PhotoForm.is_valid(): 
-            info = myForm.cleaned_data
+            info = photoForm.cleaned_data
 
             photo.image = info['image']
             photo.text = info['text']
@@ -306,11 +306,11 @@ def editPhotos(request, image):
             return render(request, 'Postit/photoRead.html')
         
     else:
-        myForm= PhotoForm(initial = {'image': photo.image, 'tect': photo.text})
+        photoForm= PhotoForm(initial = {'image': photo.image, 'text': photo.text})
 
-    return render(request, 'Postit/editPhoto.html', {'photoForm': photoForm, 'image': image})
+    return render(request, 'Postit/editPhotos.html', {'photoForm': photoForm, 'text': text})
 
-
+@login_required
 def deletePhoto(request, image):
 
     photo = Photo.objects.get(image = image)
@@ -369,7 +369,7 @@ def booksForm(request):
    
     return render(request, 'Postit/booksForm.html', {'form2': form2})
 
-
+@login_required
 def booksList(request):
 
     books = Books.objects.all()
@@ -378,22 +378,21 @@ def booksList(request):
 
     return render(request, 'Postit/booksList.html', context)
 
-
+@login_required
 def editBooks(request, title):
 
     book = Books.objects.get(title = title)
 
     if request.method == 'POST':
 
-        booksForm = BooksForm(request.POST)
+        myForm = BooksForm(request.POST)
 
-        if booksForm.is_valid(): 
+        if myForm.is_valid(): 
             info = myForm.cleaned_data
 
             book.title = info['title']
             book.writer = info['writer']
             book.genre = info['genre']
-            
 
             book.save()
 
@@ -402,9 +401,13 @@ def editBooks(request, title):
     else:
         myForm= BooksForm(initial = {'title': book.title, 'writer': book.writer, 'genre': book.genre})
 
-    return render(request, 'Postit/editBooks.html', {'booksForm': booksForm, 'title': title})
+    return render(request, 'Postit/editBooks.html', {'myForm': myForm, 'title': title})
 
 
+
+
+
+@login_required
 def deleteBook(request, title):
 
     book = Books.objects.get(title = title)

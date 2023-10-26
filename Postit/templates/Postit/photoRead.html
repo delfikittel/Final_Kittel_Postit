@@ -13,14 +13,12 @@
     
 
        
-
-       
         <img src = '{{photo.image.url}}' alt = 'no image' style= 'max-width: 200px;'>
         
         <p class="post-title"> {{photo.text}} </p>
 
         <button>    
-            <a href= '{% url "editPhotos" photo.id %}' class="btn-primary text-lowercase">edit post</a>
+            <a href= '{% url "editPhotos" photo.text %}' class="btn-primary text-lowercase">edit post</a>
         </button>
        
         <button>    

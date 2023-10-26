@@ -32,7 +32,7 @@ urlpatterns = [
     #Photo
     path('uploadPhoto/', uploadPhoto, name = 'uploadPhoto' ),
     path('photoRead/', photoRead, name = 'photoRead'),
-    path('editPhotos/<id>', editPhotos, name = 'editPhotos'),
+    path('editPhotos/<text>', editPhotos, name = 'editPhotos'),
     path('deletePhoto/<int:pk>', DeletePhoto.as_view(), name = 'deletePhoto'),
 
 

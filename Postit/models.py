@@ -54,7 +54,7 @@ class Photo(models.Model):
     def __str__(self):
         return f'{self.text}'
     image = models.ImageField(upload_to='photos', null = True, blank = True, unique = True)
-    text = models.CharField(max_length = 100, null = 'null')
+    text = models.CharField(max_length = 100, null = 'null', unique = True)
 
 
 
