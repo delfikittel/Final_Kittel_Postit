@@ -23,6 +23,7 @@ La hoja donde estan expresados los errores que encontre al hacer las pruebas:
   - https://docs.google.com/spreadsheets/d/1ZVkAwzYWT_81xAYDmL3MsDPA08q6KJvwTYZdJLVo2fI/edit?usp=sharing
 
 Video con prueba y explicación:
+  - https://youtu.be/xxVFOjYXDC8 
 
 Superuser:
   - usuario: delfi
