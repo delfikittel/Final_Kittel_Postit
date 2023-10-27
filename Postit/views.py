@@ -295,7 +295,7 @@ def editPhotos(request, text):
 
         photoForm = PhotoForm(request.POST)
 
-        if PhotoForm.is_valid(): 
+        if photoForm.is_valid(): 
             info = photoForm.cleaned_data
 
             photo.image = info['image']
