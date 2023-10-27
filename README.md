@@ -5,9 +5,9 @@ _El blog que conecta a los lectores. **Post it** te invita a postear los libros 
 **🔍¿Qué podes encontrar?**
 
 Una vez estes en el _home_ de **Post it** vas a poder leer sobre mi haciendo click en _About me_ y entrar con tu cuenta o crearte una.
-Dentro de Post it vas a poder
+Dentro de Post it vas a poder:
   - Buscar, leer y escribir opiniones sobre libros. Podes escribir qué opinas sobre tu libro favorito o buscar si otros usuarios recomiendan o no ese libro que te queres comprar
-  - Ver y publicar fotos de lo que quieras. Muchos lectores suben fotos sobre lugares que les recuerdan a bestseller o fotos con sus escritores favoritos
+  - Ver y publicar fotos de lo que quieras. Muchos lectores suben fotos sobre lugares que les recuerdan a un bestseller o fotos con sus escritores favoritos
   - Editar la información de tu perfil y hasta elegir una foto de perfil.
   - Leer y subir comentarios sobre Post it
   - Ser parte de una biblioteca comunitaria
